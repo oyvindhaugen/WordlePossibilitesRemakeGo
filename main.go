@@ -28,8 +28,7 @@ func main() {
 		words = append(words, scanner.Text())
 	}
 	fmt.Println(len(words))
-	letter := "a"
-	letterUpper := strings.ToUpper(letter)
+	letter := ""
 	x := 0
 	for {
 		fmt.Scan(&letter)
@@ -37,10 +36,12 @@ func main() {
 			break
 		}
 		for i := 0; i < len(words); i++ {
-			if strings.Contains(words[i], letter) || strings.Contains(words[i], letterUpper) {
+			if strings.ContainsAny(words[i], letter) {
 				copy(words[i:], words[i+1:])
 				words[len(words)-1] = "no"
 				words = words[:len(words)-1]
+				i = 0
+
 			}
 		}
 		fmt.Printf("Removed all words with %s\n", letter)
