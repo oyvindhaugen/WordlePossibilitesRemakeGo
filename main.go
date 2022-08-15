@@ -27,7 +27,8 @@ func main() {
 	for scanner.Scan() {
 		words = append(words, scanner.Text())
 	}
-	fmt.Println(len(words))
+	fmt.Println("Any letter you input will remove all words containing that letter from the list.")
+	fmt.Println("When you wish to print out the list, just write 'wq'.")
 	letter := ""
 	x := 0
 	for {
@@ -64,10 +65,4 @@ func main() {
 	} else {
 		os.Exit(0)
 	}
-}
-func remove(slice []string, s int) []string {
-	copy(slice[s:], slice[s+1:])
-	slice[len(slice)-1] = "no"
-	slice = slice[:len(slice)-1]
-	return slice
 }
